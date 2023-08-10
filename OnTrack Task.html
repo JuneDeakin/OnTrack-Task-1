@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kakapo Knowledge</title>
+    <link rel="stylesheet" type="text/css" href="style1.css">
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: auto;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: rgb(134, 198, 37);
+        }
+        .center {
+            display: block;
+            margin: 0 auto;
+        }
+        .image-caption {
+            font-style: italic;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            const nameError = document.getElementById('nameError');
+            const emailError = document.getElementById('emailError');
+            const messageError = document.getElementById('messageError');
+
+            // Resetting previous error messages
+            nameError.textContent = "";
+            emailError.textContent = "";
+            messageError.textContent = "";
+
+            let isValid = true;
+
+            // Name validation
+            if (!name.trim()) {
+                nameError.textContent = "Name is required";
+                isValid = false;
+            }
+
+            // Email validation
+            if (!email.trim()) {
+                emailError.textContent = "Email is required";
+                isValid = false;
+            } else if (!isValidEmail(email)) {
+                emailError.textContent = "Invalid email format";
+                isValid = false;
+            }
+
+            // Message validation
+            if (!message.trim()) {
+                messageError.textContent = "Message is required";
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        function isValidEmail(email) {
+            // Basic email format validation using regex
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailPattern.test(email);
+        }
+    </script>
+</head>
+<body>
+    <h1 style="color: rgb(134, 198, 37);">Cool Facts Corner</h1>
+    <p><b>The kakapo is the only flightless parrot in the world.</b></p>
+    <br>
+    <h2>The Facts</h2>
+    <table>
+        <tr>
+            <th>Fact Type</th>
+            <th>Details</th>
+        </tr>
+        <tr>
+            <td>Habitat</td>
+            <td>New Zealand forests</td>
+        </tr>
+        <tr>
+            <td>Status</td>
+            <td>Critically endangered</td>
+        </tr>
+        <tr>
+            <td>Population</td>
+            <td>Around 200 individuals</td>
+        </tr>
+    </table>
+    <br>
+    <div class="image1">
+        <img src="https://www.doc.govt.nz/thumbs/hero/contentassets/22c4c0407c1142ffbd70ef6ff029d722/stella-the-kakapo-codfish-1600.jpg" alt="Kakapo Image" class="center">
+        <p class="image-caption">(Image: <i>Department of Conservation, New Zealand)</i></p>
+    </div>
+    <br>
+    <h2><i>Contact The Conservation</i></h2>
+
+    <form id="contactForm" onsubmit="return validateForm()">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <span id="nameError" class="error"></span>
+        <br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <span id="emailError" class="error"></span>
+        <br><br>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+        <span id="messageError" class="error"></span>
+        <br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
+
+
