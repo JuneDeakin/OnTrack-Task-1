@@ -1,0 +1,32 @@
+body {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 1.5;
+    padding: 20px;
+    background-color: lightblue;
+}
+
+header {
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+h1 {
+    margin: 0;
+
+}
+
+h2 {
+    color: #777;
+    margin: 0;
+}
+
+.image1 img {
+    max-width: 50%;
+    height: auto;
+}
+
+section {
+    margin-bottom: 20px;
+}
